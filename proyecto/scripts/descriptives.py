@@ -297,3 +297,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# CONFLICT_BLOCK: VERSION_B
