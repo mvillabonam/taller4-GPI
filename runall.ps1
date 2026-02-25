@@ -14,4 +14,7 @@ py .\proyecto\scripts\descriptives.py
 Write-Host "4) Pronosticos"
 py .\proyecto\scripts\forecasts.py
 
+Write-Host "5) Modelos"
+py .\proyecto\scripts\modelado.py
+
 Write-Host "=== PIPELINE FINALIZADO ==="

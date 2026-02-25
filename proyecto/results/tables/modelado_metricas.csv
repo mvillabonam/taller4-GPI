@@ -1,0 +1,2 @@
+target,n_train,n_test,n_features,mae,rmse
+Asset_A_Return,19,5,28,0.0454755148265721,0.04664397526294986

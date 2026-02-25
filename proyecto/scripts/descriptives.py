@@ -127,7 +127,7 @@ def save_tables(tables_dict):
     # Also save as formatted text versions
     for name, df in tables_dict.items():
         filepath = os.path.join(tables_dir, f'{name}_formatted.txt')
-        with open(filepath, 'w') as f:
+        with open(filepath, 'w', encoding='utf-8') as f:
             f.write(f"{'='*80}\n")
             f.write(f"{name.replace('_', ' ').upper()}\n")
             f.write(f"{'='*80}\n\n")
