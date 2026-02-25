@@ -11,7 +11,7 @@ from datetime import datetime
 # ============================================================================
 # 1. LOAD PROCESSED DATA
 # ============================================================================
-
+X = "HOLA" # Este es el cambio que voy a generar para tener el conflicto
 def load_processed_data():
     """Load processed data files"""
     data_dir = os.path.join(os.path.dirname(__file__), '..', 'data', 'processed')
