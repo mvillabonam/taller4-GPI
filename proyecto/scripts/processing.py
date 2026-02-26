@@ -11,7 +11,7 @@ import argparse
 from datetime import datetime
 
 # ============================================================================
-# 0. UTILITIES (NEW)
+# 0. UTILITIES 
 # ============================================================================
 
 def validate_columns(df, required, df_name="dataframe"):
