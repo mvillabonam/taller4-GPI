@@ -8,4 +8,4 @@ def resumen_descriptivo(df: pd.DataFrame) -> pd.DataFrame:
 def media_columna(df: pd.DataFrame, col: str) -> float:
     """Calcula la media de una columna numérica."""
     # ERROR INTENCIONAL: función mal escrita
-    return np.meann(df[col].dropna())
+    return np.mean(df[col].dropna())

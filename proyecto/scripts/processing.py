@@ -66,6 +66,91 @@ def load_raw_data(data_dir=None):
 
     return df_assets, df_returns, df_indicators
 
+def load_raw_data_from_zenodo(data_dir=None, source="local"):
+    """
+    Load raw CSV files either from local folder or directly from Zenodo.
+
+    source: "local" or "zenodo"
+    """
+    if source == "zenodo":
+        base_url = "https://zenodo.org/records/18911366/files"
+        assets_path = f"{base_url}/financial_assets_main.csv?download=1"
+        returns_path = f"{base_url}/financial_returns_volume.csv?download=1"
+        indicators_path = f"{base_url}/market_indicators.csv?download=1"
+    else:
+        if data_dir is None:
+            data_dir = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
+
+        assets_path = os.path.join(data_dir, "financial_assets_main.csv")
+        returns_path = os.path.join(data_dir, "financial_returns_volume.csv")
+        indicators_path = os.path.join(data_dir, "market_indicators.csv")
+
+        for p in [assets_path, returns_path, indicators_path]:
+            if not os.path.exists(p):
+                raise FileNotFoundError(f"Raw file not found: {p}")
+
+    df_assets = pd.read_csv(assets_path)
+    df_returns = pd.read_csv(returns_path)
+    df_indicators = pd.read_csv(indicators_path)
+
+    validate_columns(df_assets, ["date"], "df_assets")
+    validate_columns(df_returns, ["date"], "df_returns")
+    validate_columns(df_indicators, ["date"], "df_indicators")
+
+    df_assets["date"] = pd.to_datetime(df_assets["date"])
+    df_returns["date"] = pd.to_datetime(df_returns["date"])
+    df_indicators["date"] = pd.to_datetime(df_indicators["date"])
+
+    print(f"✓ Loaded raw data files from {source}:")
+    print(f"  - Assets: {len(df_assets)} rows")
+    print(f"  - Returns: {len(df_returns)} rows")
+    print(f"  - Indicators: {len(df_indicators)} rows")
+
+    return df_assets, df_returns, df_indicators
+
+# CREAR FUNCIÓN PARA LLAMAR DESDE ZENODO
+def load_raw_data_from_zenodo(data_dir=None, source="local"):
+    """
+    Load raw CSV files either from local folder or directly from Zenodo.
+
+    source: "local" or "zenodo"
+    """
+    if source == "zenodo":
+        base_url = "https://zenodo.org/records/18911366/files"
+        assets_path = f"{base_url}/financial_assets_main.csv?download=1"
+        returns_path = f"{base_url}/financial_returns_volume.csv?download=1"
+        indicators_path = f"{base_url}/market_indicators.csv?download=1"
+    else:
+        if data_dir is None:
+            data_dir = os.path.join(os.path.dirname(__file__), "..", "data", "raw")
+
+        assets_path = os.path.join(data_dir, "financial_assets_main.csv")
+        returns_path = os.path.join(data_dir, "financial_returns_volume.csv")
+        indicators_path = os.path.join(data_dir, "market_indicators.csv")
+
+        for p in [assets_path, returns_path, indicators_path]:
+            if not os.path.exists(p):
+                raise FileNotFoundError(f"Raw file not found: {p}")
+
+    df_assets = pd.read_csv(assets_path)
+    df_returns = pd.read_csv(returns_path)
+    df_indicators = pd.read_csv(indicators_path)
+
+    validate_columns(df_assets, ["date"], "df_assets")
+    validate_columns(df_returns, ["date"], "df_returns")
+    validate_columns(df_indicators, ["date"], "df_indicators")
+
+    df_assets["date"] = pd.to_datetime(df_assets["date"])
+    df_returns["date"] = pd.to_datetime(df_returns["date"])
+    df_indicators["date"] = pd.to_datetime(df_indicators["date"])
+
+    print(f"✓ Loaded raw data files from {source}:")
+    print(f"  - Assets: {len(df_assets)} rows")
+    print(f"  - Returns: {len(df_returns)} rows")
+    print(f"  - Indicators: {len(df_indicators)} rows")
+
+    return df_assets, df_returns, df_indicators
+
 # ============================================================================
 # 2. DATA QUALITY & PREPROCESSING (MODIFIED: modern fill + generic dup removal)
 # ============================================================================
@@ -250,6 +335,7 @@ def main(data_dir=None, output_dir=None):
     print("STEP 1: Loading Raw Data")
     print("-"*70)
     df_assets, df_returns, df_indicators = load_raw_data(data_dir=data_dir)
+    df_assets, df_returns, df_indicators = load_raw_data(source="zenodo") # Agregamos ZENODO
     print()
 
     # Data quality

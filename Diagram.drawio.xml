@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.4">
+  <diagram name="Workflow" id="pqcpNPI0LsFOxSGazdQB">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x-5wJepjOGezP_Aajll6-1" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontStyle=1;" value="Taller 4 - Workflow centrado en datos (Kitzes et al., 2017)" vertex="1">
+          <mxGeometry height="40" width="880" x="130" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-2" parent="1" style="swimlane;html=1;rounded=1;container=1;collapsible=0;startSize=30;horizontal=1;childLayout=stackLayout;resizeParent=0;resizeLast=0;spacing=10;" value="Adquisición / Generación" vertex="1">
+          <mxGeometry height="120" width="980" x="80" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-3" parent="1" style="swimlane;html=1;rounded=1;container=1;collapsible=0;startSize=30;horizontal=1;childLayout=stackLayout;resizeParent=0;resizeLast=0;spacing=10;" value="Procesamiento + QA" vertex="1">
+          <mxGeometry height="170" width="980" x="80" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-4" parent="1" style="swimlane;html=1;rounded=1;container=1;collapsible=0;startSize=30;horizontal=1;childLayout=stackLayout;resizeParent=0;resizeLast=0;spacing=10;" value="Análisis descriptivo" vertex="1">
+          <mxGeometry height="130" width="980" x="80" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-5" parent="1" style="swimlane;html=1;rounded=1;container=1;collapsible=0;startSize=30;horizontal=1;childLayout=stackLayout;resizeParent=0;resizeLast=0;spacing=10;" value="Modelado / Pronóstico" vertex="1">
+          <mxGeometry height="150" width="980" x="80" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-6" parent="1" style="swimlane;html=1;rounded=1;container=1;collapsible=0;startSize=30;horizontal=1;childLayout=stackLayout;resizeParent=0;resizeLast=0;spacing=10;" value="Resultados + Reporte + Versionado" vertex="1">
+          <mxGeometry height="90" width="980" x="80" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="runall.ps1&#xa;(orquesta pipeline)" vertex="1">
+          <mxGeometry height="50" width="220" x="460" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Simulación&#xa;generate_financial_simulation.py" vertex="1">
+          <mxGeometry height="55" width="260" x="140" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-9" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;rounded=1;" value="data/processed&#xa;financial_*.csv&#xa;market_indicators.csv" vertex="1">
+          <mxGeometry height="55" width="260" x="440" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Procesamiento&#xa;processing.py" vertex="1">
+          <mxGeometry height="55" width="220" x="140" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-11" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="QA / Validaciones&#xa;NA, duplicados, tipos" vertex="1">
+          <mxGeometry height="65" width="190" x="400" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Feature engineering&#xa;lags, rolling, momentum" vertex="1">
+          <mxGeometry height="55" width="250" x="630" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-13" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;rounded=1;" value="data/processed&#xa;combined_data.csv&#xa;assets_features.csv&#xa;correlation_matrix.csv" vertex="1">
+          <mxGeometry height="55" width="360" x="350" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Descriptives&#xa;descriptives.py" vertex="1">
+          <mxGeometry height="55" width="240" x="160" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-15" parent="1" style="shape=folder;whiteSpace=wrap;html=1;rounded=1;" value="results/tables&#xa;descriptive_statistics.csv&#xa;timeseries_summary.csv" vertex="1">
+          <mxGeometry height="55" width="250" x="440" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-16" parent="1" style="shape=folder;whiteSpace=wrap;html=1;rounded=1;" value="results/figures&#xa;(gráficos)" vertex="1">
+          <mxGeometry height="55" width="200" x="720" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Pronósticos&#xa;forecasts.py" vertex="1">
+          <mxGeometry height="55" width="220" x="160" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Modelo baseline&#xa;modelado.py" vertex="1">
+          <mxGeometry height="55" width="220" x="410" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-19" parent="1" style="shape=folder;whiteSpace=wrap;html=1;rounded=1;" value="results&#xa;métricas / reportes" vertex="1">
+          <mxGeometry height="55" width="220" x="670" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="PDF Taller 4&#xa;(incluye imágenes)" vertex="1">
+          <mxGeometry height="45" width="220" x="200" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="GitHub&#xa;commits/ramas/merges" vertex="1">
+          <mxGeometry height="45" width="220" x="460" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Repo público&#xa;link en el PDF" vertex="1">
+          <mxGeometry height="45" width="220" x="720" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-23" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-7" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-24" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-8" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-25" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-9" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-26" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-10" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-27" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-11" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-28" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-12" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-13" value="OK">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-29" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-13" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-30" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-14" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-31" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-14" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-32" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-13" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-33" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-13" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-34" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-17" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-35" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-18" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-36" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-19" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-37" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-20" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-38" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-21" style="endArrow=block;html=1;rounded=0;" target="x-5wJepjOGezP_Aajll6-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-5wJepjOGezP_Aajll6-39" edge="1" parent="1" source="x-5wJepjOGezP_Aajll6-11" style="endArrow=block;html=1;rounded=0;dashed=1;" target="x-5wJepjOGezP_Aajll6-10" value="Falla">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

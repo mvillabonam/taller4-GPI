@@ -1,0 +1,47 @@
+flowchart TB
+  %% =========================================================
+  %% WORKFLOW: TALLER 4 - GPI (Kitzes et al. style)
+  %% =========================================================
+
+  A[Plan / Objetivo del análisis<br/>Definir outputs: tablas, figuras, métricas] --> B[Configuración del entorno<br/>environment.yml / requirements]
+  B --> C[Ejecutar pipeline<br/>runall.ps1]
+
+  subgraph S1[Adquisición / Generación de datos]
+    C --> D[Simulación financiera<br/>generate_financial_simulation.py]
+    D --> R1[(data/processed<br/>financial_assets_main.csv<br/>financial_returns_volume.csv<br/>market_indicators.csv)]
+  end
+
+  subgraph S2[Procesamiento y control de calidad]
+    R1 --> E[Procesamiento<br/>processing.py]
+    E --> Q{QA / Validaciones<br/>faltantes, duplicados, tipos}
+    Q -->|OK| F[Feature engineering<br/>lags, rolling stats, momentum]
+    Q -->|Falla| Qfix[Corregir inputs/params<br/>y re-ejecutar]
+    Qfix --> E
+    F --> R2[(data/processed<br/>combined_data.csv<br/>assets_features.csv<br/>indicators_scaled.csv<br/>correlation_matrix.csv)]
+  end
+
+  subgraph S3[Análisis descriptivo]
+    R2 --> G[Estadísticas descriptivas<br/>descriptives.py]
+    G --> T1[(results/tables<br/>descriptive_statistics.csv<br/>return_statistics.csv<br/>timeseries_summary.csv)]
+    G --> V1[(results/figures<br/>plots / resúmenes visuales)]
+  end
+
+  subgraph S4[Modelado / Pronóstico]
+    R2 --> H[Pronósticos<br/>forecasts.py]
+    H --> T2[(results/tables<br/>*_forecast_metrics.csv<br/>*_forecast_predictions.csv)]
+    H --> RPT[(results<br/>*_forecast_report.txt)]
+
+    R2 --> I[Modelo baseline<br/>modelado.py]
+    I --> T3[(results/tables<br/>modelado_metricas.csv)]
+  end
+
+  subgraph S5[Entrega y reproducibilidad]
+    T1 --> J[Reporte final / PDF Taller 4<br/>incluye figura del workflow]
+    V1 --> J
+    T2 --> J
+    T3 --> J
+    RPT --> J
+
+    J --> K[Control de versiones<br/>git add/commit/push<br/>ramas + merges]
+    K --> L[Repositorio GitHub<br/>link en el PDF]
+  end
